@@ -1,0 +1,25 @@
+"""在考虑这道题的时候选择了一种较为投机取巧的方式来做，做完了以后发现getmin的时间复杂度时间复杂度过高，导致程序执行耗时过久，因此需要改进.
+   做完以后发现有利用双链表的方法来完成的，时间复杂度为常数，晚些时候将这道题改进。"""
+
+
+class MinStack(object):
+
+    def __init__(self):
+        self.stack = []       #初始化
+    
+        
+    def push(self, x):
+        self.stack.append(x)   #使用append()函数来将数值加入栈末尾
+        
+
+    def pop(self):
+        return self.stack.pop()    #使用pop()函数来将栈末值返回出栈
+
+
+    def top(self):
+        return self.stack[-1]      #返回栈顶值  
+
+
+    def getMin(self):
+        return min(self.stack)      #遍历全栈返回最小值
+
