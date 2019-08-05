@@ -1,0 +1,19 @@
+#本题可以用数字来表示各种类型的扩号，倒是一个新奇的做法
+
+
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        
+        dict={"(":1,")":-1,"[":2,"]":-2,"{":3,"}":-3}
+        Str=[]
+        for i in s:
+            if len(Str)==0: Str.append(i)
+            elif dict[i]+dict[Str[-1]]==0:
+                del Str[-1]
+            else:
+                Str.append(i)
+        return len(Str)==0
